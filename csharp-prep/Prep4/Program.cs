@@ -29,9 +29,23 @@ class Program
        //display the sum
        Console.WriteLine($"The total is: {sum}");
 
-        //calculate avergage
-        float average = ((float)sum) / listNumbers.Count;
-        Console.WriteLine($"The average from the total is: {average}");
+       //calculate avergage
+       float average = ((float)sum) / listNumbers.Count;
+       Console.WriteLine($"The average from the total is: {average}");
+
+        //find the max number
+        int maximum = listNumbers[0]; //the list by iteself won't work as a value for a variable. need to investigate. I know square brackets are to declare attributes
+        //Loop
+        foreach (int items in listNumbers)
+        {
+          if (items > maximum)
+          {
+             maximum = items;
+          }
+        }
+        Console.WriteLine($"The maximum number from the list is: {maximum}");
+
+
       }//end of loop while
 
     } //end of main
