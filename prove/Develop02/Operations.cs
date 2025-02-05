@@ -31,7 +31,7 @@ class Operations
         //Generate a random question to save it in a variable that can be used to save the info in a document
         string questionCapture = questionsList.ElementAt(randomQuestion);
         //Concatenate the random question and the entry from the user to save it later in a document
-        Console.WriteLine( input = $"\nInfo captured by the user\nDate:{date},\nThe prompt: {questionCapture},\nThe answer: {answerCapture}\n");
+        Console.WriteLine( input = $"\nInfo captured by the user,\nDate:{date},\nThe prompt: {questionCapture},\nThe answer: {answerCapture}\n");
         inputUser.Add(input);  
     }
     
@@ -56,7 +56,7 @@ class Operations
         Console.WriteLine("Enter the file name to save:\n");
         string _loadFile = Console.ReadLine(); 
         //test what it was saved
-        Console.WriteLine(_loadFile);
+        //Console.WriteLine(_loadFile);
         //Create new list
         //List<string> list = new List<string>();    
         //read from a file
@@ -76,7 +76,7 @@ class Operations
         Console.WriteLine("Enter the file name to save:\n");
         string _saveFile = Console.ReadLine(); 
         //test what it was saved
-        Console.WriteLine(_saveFile);
+        //Console.WriteLine(_saveFile);
         //the following code takes what is in the list, temporal memory, and put it into a static file   
         using (StreamWriter saving = new StreamWriter(_saveFile))
         {
