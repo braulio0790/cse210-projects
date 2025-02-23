@@ -18,7 +18,7 @@ class ScriptureApp
         _reference = reference;
         //Split the text of the scripture into words, save it into a list to have them indexed
         string[] wordsArray = text.Split(' ');
-        //Loop through each word and add it to the list
+        //Loop through each word and add it to the list but also using the WordApp mark all words as false, not hidden
         foreach (string word in wordsArray)
         {
             WordApp wordObject = new WordApp(word);
@@ -27,16 +27,20 @@ class ScriptureApp
 
     } // end of the constructor ScriptureApp
 
-    //The following code will take the separted list 
+    //The following code will take the separted list of words, marked as false, then join them together with spaces
+    //and finally combine those words with the reference
     public string DisplayReferenceScripture()
     {
         //Call the reference variable, asign it to a new variable and convert it to a string
         string referenceText = _reference.ToString();
-        //
+        //Get the separated list, and replace the text for ___
         List<string> wordTexts = new List<string>();
-        //
+        
+        //Loop the words of scripture to display them together
         foreach(var word in _words)
         {
+            //I can access GetDisplayText because _words list contains the WordApp methods
+            //Show the text word, or the replace word
             wordTexts.Add(word.GetDisplayText());
         }
         //Create a new varible to give spaces to the list that will contain the separated words
@@ -52,6 +56,7 @@ class ScriptureApp
         //Create an object for the random class
         var random = new Random();
         //Create a list to hold the visible words
+        //WordApp in the separated list mean that all words are marked as false becasue they are not hidden
         var visibleWords = new List<WordApp>();
 
         //Create a loop to keep track of visible words
@@ -59,6 +64,7 @@ class ScriptureApp
         {
             //Logic to check if the word is visible
             //The ! symbol is the negative or whatever is Worddapp.hiddenWord, actuall it means true.
+            //If a word is marked as false, not hidden, add it to the visible words
             if (!word.HiddenWord)
             {
                 //Add a visible word and add it to the visibleWords list
